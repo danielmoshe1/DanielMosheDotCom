@@ -1,0 +1,656 @@
+/* ============================================================
+   Daniel Moshe — danielmoshe.com
+   style.css
+   ============================================================ */
+
+/* === Custom Properties === */
+:root {
+  --bg:        #f9f9f7;
+  --text:      #0a0a0a;
+  --muted:     #6b6b6b;
+  --accent:    #1c3a2a;
+  --rule:      #e8e8e8;
+  --max-w:     900px;
+  --pad-x:     clamp(1.5rem, 5vw, 3rem);
+  --section-y: clamp(5rem, 10vw, 8.75rem);
+
+  --display:   'Cormorant Garamond', Georgia, serif;
+  --sans:      'Jost', system-ui, sans-serif;
+}
+
+/* === Reset === */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* === Base === */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 200ms ease;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* === Layout Container === */
+.container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+}
+
+/* === Section Divider === */
+.section-rule {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 0;
+}
+
+/* ============================================================
+   Navigation
+   ============================================================ */
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 1.25rem 0;
+  transition: background 300ms ease, border-bottom-color 300ms ease;
+  border-bottom: 1px solid transparent;
+}
+
+.site-nav.scrolled {
+  background: rgba(249, 249, 247, 0.96);
+  border-bottom-color: var(--rule);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.nav-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-wordmark {
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 0.8125rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.nav-wordmark:hover {
+  color: var(--accent);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-links a {
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color 200ms ease;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+/* Hamburger button */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.375rem;
+  color: var(--text);
+  line-height: 1;
+}
+
+/* ============================================================
+   Hero
+   ============================================================ */
+.hero {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding-top: 5rem;
+  padding-bottom: 4rem;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+
+.hero-text {
+  animation: heroFadeIn 700ms ease both;
+}
+
+@keyframes heroFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.hero-name {
+  font-family: var(--display);
+  font-size: clamp(4rem, 10vw, 7.5rem);
+  font-weight: 300;
+  line-height: 1.0;
+  letter-spacing: -0.015em;
+  margin-bottom: 1.75rem;
+  color: var(--text);
+}
+
+.hero-descriptor {
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: clamp(1rem, 1.8vw, 1.125rem);
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  max-width: 42ch;
+}
+
+.hero-location {
+  font-size: 0.8125rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.hero-photo-placeholder {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background-color: #d9d5cf;
+  overflow: hidden;
+}
+
+.hero-photo-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* ============================================================
+   Sections — Shared
+   ============================================================ */
+.site-section {
+  padding: var(--section-y) 0;
+}
+
+.section-label {
+  display: block;
+  font-family: var(--sans);
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 2.5rem;
+}
+
+.section-heading {
+  font-family: var(--display);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 300;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.5rem;
+}
+
+/* ============================================================
+   About
+   ============================================================ */
+.about-body {
+  max-width: 64ch;
+}
+
+.about-body p {
+  margin-bottom: 1.5rem;
+  color: var(--text);
+}
+
+.about-body p:last-child {
+  margin-bottom: 0;
+}
+
+.about-education {
+  margin-top: 2.75rem;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ============================================================
+   Work / Ventures
+   ============================================================ */
+.ventures-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.venture {
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--rule);
+}
+
+.venture:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.venture-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 0.875rem;
+  flex-wrap: wrap;
+}
+
+.venture-name {
+  font-family: var(--display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+
+.venture-meta {
+  font-size: 0.8125rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.venture p {
+  max-width: 58ch;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.venture-link {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0.01em;
+  overflow-wrap: break-word;
+  word-break: break-all;
+  transition: color 200ms ease;
+}
+
+.venture-link:hover {
+  color: var(--accent);
+}
+
+/* ============================================================
+   Values
+   ============================================================ */
+.values-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem 4rem;
+}
+
+.value-name {
+  font-family: var(--display);
+  font-size: clamp(1.5rem, 2.5vw, 1.875rem);
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+.value p {
+  color: var(--muted);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+}
+
+/* ============================================================
+   Speaking
+   ============================================================ */
+.speaking-body {
+  max-width: 58ch;
+}
+
+.speaking-body > p {
+  margin-bottom: 1.75rem;
+}
+
+.speaking-topics {
+  margin-bottom: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.speaking-topics li {
+  padding-left: 1.25rem;
+  position: relative;
+  color: var(--text);
+  font-weight: 300;
+}
+
+.speaking-topics li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 400;
+  line-height: inherit;
+}
+
+.speaking-cta {
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: var(--text);
+  letter-spacing: 0.01em;
+  transition: color 200ms ease;
+}
+
+.speaking-cta:hover {
+  color: var(--accent);
+}
+
+/* ============================================================
+   Bookshelf
+   ============================================================ */
+.books-intro {
+  color: var(--muted);
+  max-width: 52ch;
+  margin-bottom: 3rem;
+  font-size: 1rem;
+}
+
+.book-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.book {
+  padding: 2rem 0;
+  border-top: 1px solid var(--rule);
+  max-width: 58ch;
+}
+
+.book:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.book-title {
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 0.125rem;
+}
+
+.book-author {
+  font-size: 0.875rem;
+  color: var(--muted);
+  font-weight: 300;
+  margin-bottom: 0.625rem;
+}
+
+.book-note {
+  font-size: 0.9375rem;
+  color: var(--text);
+  font-weight: 300;
+  line-height: 1.65;
+}
+
+/* ============================================================
+   Contact
+   ============================================================ */
+.contact-intro {
+  color: var(--muted);
+  max-width: 42ch;
+  margin-bottom: 3rem;
+  font-size: 1rem;
+}
+
+.contact-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1.375rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.contact-label {
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  min-width: 5.5rem;
+  flex-shrink: 0;
+}
+
+.contact-link {
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 200ms ease;
+  overflow-wrap: break-word;
+  word-break: break-all;
+}
+
+.contact-link:hover {
+  color: var(--accent);
+}
+
+.contact-link svg {
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+.site-footer {
+  padding: 2.75rem 0;
+  border-top: 1px solid var(--rule);
+}
+
+.footer-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.footer-copy {
+  font-size: 0.8125rem;
+  color: var(--muted);
+  font-weight: 300;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-nav a {
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 400;
+  transition: color 200ms ease;
+}
+
+.footer-nav a:hover {
+  color: var(--accent);
+}
+
+.footer-linkedin {
+  color: var(--muted);
+  line-height: 0;
+  transition: color 200ms ease;
+}
+
+.footer-linkedin:hover {
+  color: var(--accent);
+}
+
+/* ============================================================
+   Responsive — Tablet / Mobile
+   ============================================================ */
+@media (max-width: 720px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .hero-photo-wrap {
+    order: -1;
+    max-width: 220px;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: rgba(249, 249, 247, 0.98);
+    border-top: 1px solid var(--rule);
+    padding: 0.375rem 0;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 0.875rem var(--pad-x);
+    font-size: 0.8125rem;
+    color: var(--text);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .nav-links a:last-child {
+    border-bottom: none;
+  }
+
+  .contact-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .contact-label {
+    min-width: auto;
+  }
+
+  .footer-nav {
+    gap: 1rem;
+  }
+}
+
+/* ============================================================
+   Print
+   ============================================================ */
+@media print {
+  .site-nav,
+  .menu-toggle {
+    display: none;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-top: 2rem;
+  }
+
+  .site-section {
+    padding: 3rem 0;
+    break-inside: avoid;
+  }
+
+  a[href^="http"]::after,
+  a[href^="mailto"]::after,
+  a[href^="tel"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.75em;
+    color: var(--muted);
+  }
+
+  a[href^="#"]::after {
+    display: none;
+  }
+}
