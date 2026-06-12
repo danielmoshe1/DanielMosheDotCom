@@ -779,10 +779,23 @@ ul, ol { list-style: none; }
   border: 1px solid var(--rule);
 }
 
+.speaking-media a { display: block; }
+
 .speaking-media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 600ms ease;
+}
+
+.speaking-media a:hover img { transform: scale(1.03); }
+
+.speaking-credit {
+  font-size: 0.78rem;
+  color: var(--muted);
+  padding: 0.75rem 1rem;
+  border-top: 1px solid var(--rule);
+  background: var(--panel);
 }
 
 .speaking-body > p { color: #cdd4df; margin-bottom: 1.75rem; }
