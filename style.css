@@ -511,6 +511,15 @@ ul, ol { list-style: none; }
   transition: transform 250ms ease, border-color 250ms ease, box-shadow 250ms ease;
 }
 
+/* With an odd number of cards, let the last one span the full row */
+.venture-card:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
+.venture-card:last-child:nth-child(odd) .venture-card-media {
+  aspect-ratio: 16 / 6;
+}
+
 .venture-card:hover {
   transform: translateY(-5px);
   border-color: rgba(255, 138, 42, 0.45);
