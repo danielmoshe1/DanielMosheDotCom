@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="robots" content="noindex" />
+  <title>Orenj — Get dangerously good at explaining things</title>
+  <link rel="stylesheet" href="style.css?v=1" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍊</text></svg>" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="brand" id="brand-home" role="button" tabindex="0">
+      <span class="brand-mark">🍊</span>
+      <span class="brand-name">Orenj</span>
+      <span class="brand-tag">super&#8209;communicator training</span>
+    </div>
+    <div class="stats">
+      <div class="stat" title="Daily streak"><span class="stat-icon">🔥</span><span id="stat-streak">0</span></div>
+      <div class="stat" title="Experience points"><span class="stat-icon">⚡</span><span id="stat-xp">0</span></div>
+      <div class="stat" title="Level"><span class="stat-icon">🏅</span><span id="stat-level">1</span></div>
+    </div>
+  </header>
+
+  <nav class="tabbar">
+    <button class="tab active" data-screen="home">Learn</button>
+    <button class="tab" data-screen="progress">Progress</button>
+    <button class="tab" data-screen="settings">Coach</button>
+  </nav>
+
+  <main id="app">
+
+    <!-- ============ HOME / PATH ============ -->
+    <section id="screen-home" class="screen active">
+      <div class="hero" id="home-hero">
+        <h1>Get dangerously good<br/>at explaining things.</h1>
+        <p>Short, playful exercises. Real coaching after every answer.<br/>Like a gym for your communication skills.</p>
+        <button class="btn btn-primary btn-big" id="btn-baseline">Take the 2-minute placement test</button>
+      </div>
+      <div id="path"></div>
+    </section>
+
+    <!-- ============ EXERCISE ============ -->
+    <section id="screen-exercise" class="screen">
+      <div class="exercise-card">
+        <div class="exercise-head">
+          <button class="btn-back" id="btn-quit-exercise">←</button>
+          <div class="exercise-unit" id="ex-unit"></div>
+          <div class="exercise-timer" id="ex-timer">0:00</div>
+        </div>
+        <div class="exercise-badge" id="ex-badge">🍊</div>
+        <h2 id="ex-title"></h2>
+        <p class="exercise-prompt" id="ex-prompt"></p>
+        <p class="exercise-audience" id="ex-audience"></p>
+        <div class="forbidden" id="ex-forbidden"></div>
+        <textarea id="ex-input" rows="7" placeholder="Type your explanation here… Aim for 3–6 sentences. Use an analogy. Speak their language."></textarea>
+        <div class="exercise-foot">
+          <span class="wordcount" id="ex-wordcount">0 words</span>
+          <button class="btn btn-primary" id="btn-submit" disabled>Get coaching</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FEEDBACK ============ -->
+    <section id="screen-feedback" class="screen">
+      <div class="feedback-card">
+        <div class="feedback-top">
+          <div class="score-ring-wrap">
+            <svg class="score-ring" viewBox="0 0 120 120">
+              <circle class="ring-bg" cx="60" cy="60" r="52"/>
+              <circle class="ring-fg" id="ring-fg" cx="60" cy="60" r="52"/>
+            </svg>
+            <div class="score-ring-label"><span id="fb-score">0</span><small>/100</small></div>
+          </div>
+          <div class="feedback-headline">
+            <h2 id="fb-headline">Nice work!</h2>
+            <p id="fb-xp" class="xp-gain"></p>
+            <p id="fb-source" class="fb-source"></p>
+          </div>
+        </div>
+
+        <div class="skill-bars" id="fb-bars"></div>
+
+        <div class="fb-section" id="fb-strengths-wrap">
+          <h3>💪 What worked</h3>
+          <ul id="fb-strengths"></ul>
+        </div>
+        <div class="fb-section" id="fb-improve-wrap">
+          <h3>🧠 Coach's notes</h3>
+          <ul id="fb-improvements"></ul>
+        </div>
+        <div class="fb-section" id="fb-rewrite-wrap">
+          <h3>✨ One way a pro might say it</h3>
+          <blockquote id="fb-rewrite"></blockquote>
+        </div>
+
+        <div class="feedback-actions">
+          <button class="btn btn-ghost" id="btn-retry">Try again</button>
+          <button class="btn btn-primary" id="btn-continue">Continue</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROGRESS ============ -->
+    <section id="screen-progress" class="screen">
+      <h2 class="screen-title">Your intervention effect</h2>
+      <p class="screen-sub">Orenj measures whether the training actually works: your placement-test score is the baseline, and periodic checkpoint tests show the change.</p>
+      <div class="effect-cards">
+        <div class="effect-card"><div class="effect-num" id="pg-baseline">—</div><div class="effect-label">Baseline</div></div>
+        <div class="effect-card"><div class="effect-num" id="pg-current">—</div><div class="effect-label">Recent avg</div></div>
+        <div class="effect-card highlight"><div class="effect-num" id="pg-delta">—</div><div class="effect-label">Effect</div></div>
+      </div>
+      <div class="chart-card">
+        <canvas id="chart" width="640" height="280"></canvas>
+        <div class="chart-legend">
+          <span><i class="dot dot-lesson"></i> Lesson scores</span>
+          <span><i class="dot dot-test"></i> Checkpoint tests</span>
+        </div>
+      </div>
+      <h3 class="screen-title-sm">Technique breakdown (last 5 exercises)</h3>
+      <div class="skill-bars" id="pg-bars"></div>
+      <div id="pg-empty" class="empty-note">Complete a few exercises and your data will show up here.</div>
+    </section>
+
+    <!-- ============ SETTINGS / COACH ============ -->
+    <section id="screen-settings" class="screen">
+      <h2 class="screen-title">AI Coach</h2>
+      <div class="settings-card">
+        <p>Orenj ships with a <strong>built-in coach</strong> that scores your explanations instantly using communication-technique heuristics — it works offline, no setup.</p>
+        <p>For deeper, personalized coaching you can connect <strong>Claude</strong> (Anthropic's AI). Claude reads your explanation, scores each technique, and writes a model answer.</p>
+        <label class="field-label" for="api-key">Anthropic API key (optional)</label>
+        <input type="password" id="api-key" placeholder="sk-ant-…" autocomplete="off" />
+        <div class="key-warning">
+          ⚠️ <strong>Prototype only.</strong> The key is stored in this browser's localStorage and sent directly from your browser to Anthropic. Use a low-limit key you can revoke. The production app will route coaching through a backend so no key ever lives in the client.
+        </div>
+        <div class="settings-actions">
+          <button class="btn btn-primary" id="btn-save-key">Save</button>
+          <button class="btn btn-ghost" id="btn-clear-key">Remove key</button>
+        </div>
+        <p class="coach-status" id="coach-status"></p>
+      </div>
+      <div class="settings-card">
+        <h3>Reset</h3>
+        <p>Wipe all local progress (XP, streak, scores) and start fresh.</p>
+        <button class="btn btn-danger" id="btn-reset">Reset all progress</button>
+      </div>
+      <p class="footer-note">Orenj prototype · Duolingo-style training for super-communication skills · all data stays in your browser</p>
+    </section>
+
+  </main>
+
+  <div id="toast" class="toast"></div>
+  <div id="loading" class="loading-overlay">
+    <div class="loading-box">
+      <div class="loading-orange">🍊</div>
+      <p id="loading-text">Your coach is reading your explanation…</p>
+    </div>
+  </div>
+
+  <script src="app.js?v=1"></script>
+</body>
+</html>
