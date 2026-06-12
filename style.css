@@ -645,7 +645,7 @@ ul, ol { list-style: none; }
 
 .video-cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: clamp(1.25rem, 2.5vw, 2rem);
   margin-bottom: clamp(3rem, 5vw, 4.5rem);
 }
@@ -1104,7 +1104,6 @@ ul, ol { list-style: none; }
    Responsive
    ============================================================ */
 @media (max-width: 1000px) {
-  .video-cards { grid-template-columns: 1fr 1fr; }
   .values-grid { grid-template-columns: 1fr 1fr; }
   .beyond-cards { grid-template-columns: 1fr 1fr; }
 }
