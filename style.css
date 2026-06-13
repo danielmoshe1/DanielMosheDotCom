@@ -698,7 +698,7 @@ ul, ol { list-style: none; }
 .eos-photos {
   margin-top: clamp(2.5rem, 4vw, 3.5rem);
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: clamp(1.25rem, 2.5vw, 2rem);
 }
 
@@ -985,6 +985,11 @@ ul, ol { list-style: none; }
 }
 
 .beyond-card:hover img { transform: scale(1.06); }
+
+.beyond-card-wide {
+  grid-column: 1 / -1;
+  aspect-ratio: 21 / 8;
+}
 
 .beyond-card figcaption {
   position: absolute;
