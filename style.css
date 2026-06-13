@@ -495,6 +495,62 @@ ul, ol { list-style: none; }
 /* ============================================================
    Ventures
    ============================================================ */
+.venture-rows {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(1.5rem, 3vw, 2.25rem);
+  margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.venture-row {
+  background: var(--panel);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: clamp(1.5rem, 2.5vw, 2rem);
+  display: flex;
+  flex-direction: column;
+  transition: transform 250ms ease, border-color 250ms ease, box-shadow 250ms ease;
+}
+
+.venture-row:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 138, 42, 0.45);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.45);
+}
+
+.venture-logo {
+  background: #fff;
+  border-radius: 10px;
+  height: 96px;
+  display: grid;
+  place-items: center;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.375rem;
+}
+
+.venture-logo img {
+  max-height: 60px;
+  max-width: 220px;
+  width: auto;
+  object-fit: contain;
+}
+
+.venture-row .venture-card-header { margin-bottom: 0.75rem; }
+
+.venture-row h3 {
+  font-family: var(--display);
+  font-size: 1.375rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.venture-row p {
+  font-size: 0.9375rem;
+  color: var(--muted);
+  margin-bottom: 1.25rem;
+  flex: 1;
+}
+
 .venture-cards {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -637,6 +693,32 @@ ul, ol { list-style: none; }
   font-size: 0.9375rem;
   color: #cdd4df;
   margin-bottom: 1.75rem;
+}
+
+.eos-photos {
+  margin-top: clamp(2.5rem, 4vw, 3.5rem);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+}
+
+.eos-photos figure {
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--panel);
+}
+
+.eos-photos img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.eos-photos figcaption {
+  font-size: 0.8125rem;
+  color: var(--muted);
+  padding: 0.875rem 1.25rem;
 }
 
 /* ============================================================
@@ -1153,6 +1235,8 @@ ul, ol { list-style: none; }
   .speaking-grid,
   .media-columns,
   .contact-grid,
+  .eos-photos,
+  .venture-rows,
   .venture-cards { grid-template-columns: 1fr; }
 
   .speaking-media { max-height: 340px; }
