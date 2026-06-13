@@ -1022,16 +1022,19 @@ ul, ol { list-style: none; }
 .book-list li {
   color: var(--muted);
   font-size: 0.9375rem;
-  padding-left: 1.5rem;
-  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
-.book-list li::before {
-  content: '📖';
-  position: absolute;
-  left: 0;
-  font-size: 0.8125rem;
-  top: 0.2em;
+.book-cover {
+  flex-shrink: 0;
+  width: 66px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid var(--rule);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
 }
 
 .book-list li strong { color: var(--text); font-weight: 600; }
