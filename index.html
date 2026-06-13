@@ -4,6 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Security headers (meta-level; GitHub Pages cannot set HTTP headers) -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://i.ytimg.com; form-action https://formsubmit.co; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <!-- To list on Google: verify ownership in Google Search Console (https://search.google.com/search-console),
+       choose the "HTML tag" method, and paste your verification tag below. (This is Search Console, not Analytics.)
+  <meta name="google-site-verification" content="REPLACE_WITH_YOUR_TOKEN"> -->
+
   <title>Daniel Moshe — Entrepreneur, Expert EOS Implementer™ &amp; Speaker</title>
   <meta name="description" content="Daniel Moshe is a portfolio entrepreneur, national speaker, and Expert EOS Implementer™ based in Minneapolis. Founder of Tech Guru and Lucid Day, he helps leadership teams build great companies.">
   <link rel="canonical" href="https://danielmoshe.com">
@@ -29,6 +37,7 @@
     "@type": "Person",
     "name": "Daniel Moshe",
     "jobTitle": "Portfolio Entrepreneur, Expert EOS Implementer, Speaker",
+    "description": "Daniel Moshe is a portfolio entrepreneur, national speaker, and Expert EOS Implementer based in the Minneapolis area. He has founded and led five companies and delivered more than 500 EOS sessions for leadership teams.",
     "url": "https://danielmoshe.com",
     "image": "https://danielmoshe.com/headshot.jpg",
     "email": "daniel@danielmoshe.com",
@@ -43,6 +52,19 @@
       "@type": "CollegeOrUniversity",
       "name": "University of Minnesota, Carlson School of Management"
     },
+    "worksFor": [
+      { "@type": "Organization", "name": "Tech Guru", "url": "https://www.techguruit.com" },
+      { "@type": "Organization", "name": "Lucid Day", "url": "https://www.lucidday.com" },
+      { "@type": "Organization", "name": "EOS Worldwide", "url": "https://www.eosworldwide.com" }
+    ],
+    "knowsAbout": [
+      "Entrepreneurial Operating System (EOS)",
+      "Leadership team development",
+      "Organizational health",
+      "Business strategy",
+      "Entrepreneurship",
+      "Information technology strategy for accounting firms"
+    ],
     "sameAs": [
       "https://www.linkedin.com/in/danmoshe",
       "https://www.facebook.com/immoshe",
@@ -51,6 +73,48 @@
       "https://www.techguruit.com",
       "https://www.lucidday.com",
       "https://www.accountingtoday.com/author/daniel-moshe"
+    ]
+  }
+  </script>
+
+  <!-- Structured Data: WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Daniel Moshe",
+    "url": "https://danielmoshe.com",
+    "inLanguage": "en-US",
+    "about": "Personal site of Daniel Moshe — entrepreneur, Expert EOS Implementer, and speaker."
+  }
+  </script>
+
+  <!-- Structured Data: FAQ (mirrors the visible FAQ section) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Who is Daniel Moshe?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Daniel Moshe is a Minneapolis-based portfolio entrepreneur, national speaker, and Expert EOS Implementer. He founded Tech Guru in 2004 and Lucid Day in 2020, and has delivered more than 500 EOS sessions for leadership teams." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is an Expert EOS Implementer?",
+        "acceptedAnswer": { "@type": "Answer", "text": "An Expert EOS Implementer is the most experienced tier of EOS Worldwide implementers. Daniel helps leadership teams run on EOS (the Entrepreneurial Operating System) to clarify their vision, build accountability, and gain Traction." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a free 90-Minute Meeting?",
+        "acceptedAnswer": { "@type": "Answer", "text": "It is a complimentary session in which Daniel shows a leadership team how EOS works and how it can help eliminate common business frustrations. There is no obligation." }
+      },
+      {
+        "@type": "Question",
+        "name": "How can I work with or book Daniel Moshe?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Reach out through the contact form at danielmoshe.com or email daniel@danielmoshe.com for EOS implementation, mentoring, speaking engagements, or business opportunities." }
+      }
     ]
   }
   </script>
@@ -687,6 +751,57 @@
     </section>
 
     <!-- ============================================================
+         FAQ
+         ============================================================ -->
+    <section class="site-section section-alt" id="faq" aria-labelledby="faq-label">
+      <div class="container">
+
+        <h2 id="faq-label" class="section-label">FAQ</h2>
+        <p class="section-heading reveal">Questions, answered.</p>
+
+        <div class="faq-list reveal">
+          <details class="faq-item">
+            <summary>Who is Daniel Moshe?</summary>
+            <p>
+              Daniel Moshe is a Minneapolis-based portfolio entrepreneur, national speaker, and
+              Expert EOS Implementer™. He founded Tech Guru in 2004 and Lucid Day in 2020, and has
+              delivered more than 500 EOS sessions for leadership teams across the country.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>What is an Expert EOS Implementer™?</summary>
+            <p>
+              It's the most experienced tier of EOS Worldwide implementers. Daniel helps leadership
+              teams run on EOS® — the Entrepreneurial Operating System® — to clarify their vision,
+              build discipline and accountability, and gain real Traction®.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>What is the free 90-Minute Meeting?</summary>
+            <p>
+              A complimentary, no-obligation session where Daniel shows your leadership team how EOS
+              works and how it can eliminate the most common business frustrations.
+              <a href="#contact">Book yours here.</a>
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>How can I work with or book Daniel?</summary>
+            <p>
+              Use the <a href="#contact">contact form</a> or email
+              <a href="mailto:daniel@danielmoshe.com">daniel@danielmoshe.com</a> about EOS
+              implementation, mentoring, a speaking engagement, or a business opportunity. He reads
+              every message and responds personally.
+            </p>
+          </details>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
          Contact
          ============================================================ -->
     <section class="site-section contact-section" id="contact" aria-labelledby="contact-heading">
@@ -706,7 +821,7 @@
             <input type="hidden" name="_template" value="table">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_next" value="https://danielmoshe.com/thanks.html">
-            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
 
             <div class="form-row">
               <label for="cf-name">Name</label>
@@ -794,71 +909,18 @@
         <a href="#eos">EOS</a>
         <a href="#media">Media</a>
         <a href="#speaking">Speaking</a>
+        <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
+        <a href="/privacy.html">Privacy</a>
       </nav>
 
     </div>
   </footer>
 
   <!-- ============================================================
-       Vanilla JS — nav, mobile menu, role rotator, scroll reveal
+       Site behavior — external script (keeps a strict CSP clean)
        ============================================================ -->
-  <script>
-    (function () {
-      var nav    = document.getElementById('site-nav');
-      var toggle = document.getElementById('menu-toggle');
-      var links  = document.getElementById('nav-links');
-
-      window.addEventListener('scroll', function () {
-        nav.classList.toggle('scrolled', window.scrollY > 60);
-      }, { passive: true });
-
-      toggle.addEventListener('click', function () {
-        var open = links.classList.toggle('open');
-        toggle.setAttribute('aria-expanded', String(open));
-        if (open) { nav.classList.add('scrolled'); }
-        else if (window.scrollY <= 60) { nav.classList.remove('scrolled'); }
-      });
-
-      links.addEventListener('click', function (e) {
-        if (e.target.tagName === 'A') {
-          links.classList.remove('open');
-          toggle.setAttribute('aria-expanded', 'false');
-          if (window.scrollY <= 60) { nav.classList.remove('scrolled'); }
-        }
-      });
-
-      // Rotating hero roles
-      var roles = ['Entrepreneur.', 'Expert EOS Implementer™.', 'Speaker.', 'Leadership Team Coach.', 'EO Accelerator Mentor.', 'Pilot.'];
-      var rotator = document.getElementById('role-rotator');
-      var idx = 0;
-      if (rotator && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        setInterval(function () {
-          idx = (idx + 1) % roles.length;
-          rotator.classList.add('role-out');
-          setTimeout(function () {
-            rotator.textContent = roles[idx];
-            rotator.classList.remove('role-out');
-          }, 280);
-        }, 2600);
-      }
-
-      // Scroll reveal
-      if ('IntersectionObserver' in window) {
-        var observer = new IntersectionObserver(function (entries) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
-              observer.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.12 });
-        document.querySelectorAll('.reveal').forEach(function (el) { observer.observe(el); });
-      } else {
-        document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('visible'); });
-      }
-    }());
-  </script>
+  <script src="app.js?v=2" defer></script>
 
 </body>
 </html>
