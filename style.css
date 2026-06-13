@@ -492,6 +492,30 @@ ul, ol { list-style: none; }
   margin-top: 0.125rem;
 }
 
+.honors {
+  margin-top: clamp(3rem, 5vw, 4.5rem);
+}
+
+.honors-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.honors-list li {
+  font-size: 0.8125rem;
+  color: #cdd4df;
+  background: var(--panel);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 0.5rem 1.1rem;
+  transition: border-color 200ms ease;
+}
+
+.honors-list li:hover {
+  border-color: rgba(255, 138, 42, 0.45);
+}
+
 /* ============================================================
    Ventures
    ============================================================ */
