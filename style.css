@@ -1135,6 +1135,11 @@ ul, ol { list-style: none; }
   display: none !important;
 }
 
+/* Reliable hide that beats component display rules (e.g. .contact-form flex) */
+.is-hidden {
+  display: none !important;
+}
+
 /* ============================================================
    Contact
    ============================================================ */
@@ -1215,6 +1220,37 @@ ul, ol { list-style: none; }
 }
 
 .contact-form textarea { resize: vertical; min-height: 8rem; }
+
+.form-status {
+  border-radius: var(--radius);
+  padding: 1.5rem 1.75rem;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  outline: none;
+}
+
+.form-status strong {
+  font-family: var(--display);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.form-status-success {
+  background: linear-gradient(150deg, rgba(255, 138, 42, 0.16), rgba(255, 138, 42, 0.05));
+  border: 1px solid rgba(255, 138, 42, 0.4);
+  color: #e4e9f0;
+}
+
+.form-status-error {
+  background: rgba(220, 80, 60, 0.10);
+  border: 1px solid rgba(220, 80, 60, 0.45);
+  color: #f0d9d5;
+}
+
+.form-status-error a {
+  color: var(--accent-2);
+  text-decoration: underline;
+}
 
 .contact-direct h3 {
   font-family: var(--display);
