@@ -40,6 +40,47 @@
     }, 2600);
   }
 
+  // Contact form — inline confirmation via FormSubmit AJAX (progressive enhancement)
+  var form = document.querySelector('.contact-form');
+  var status = document.getElementById('form-status');
+  if (form && status && window.fetch) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault(); // browser still runs required-field validation before this fires
+      var btn = form.querySelector('button[type="submit"]');
+      var original = btn ? btn.textContent : '';
+      if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+
+      var data = {};
+      new FormData(form).forEach(function (v, k) { data[k] = v; });
+
+      fetch('https://formsubmit.co/ajax/a702a6c9fd97003a7db2bc462ecbaeef', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      })
+        .then(function (r) { return r.json(); })
+        .then(function (j) {
+          if (j && (j.success === 'true' || j.success === true)) {
+            form.reset();
+            form.classList.add('is-hidden');
+            status.className = 'form-status form-status-success';
+            status.innerHTML = '<strong>Message sent.</strong> Thanks for reaching out — Daniel reads every message and will get back to you personally.';
+            status.hidden = false;
+            status.focus();
+          } else {
+            throw new Error('FormSubmit returned an error');
+          }
+        })
+        .catch(function () {
+          if (btn) { btn.disabled = false; btn.textContent = original; }
+          status.className = 'form-status form-status-error';
+          status.innerHTML = 'Something went wrong sending your message. Please try again, or connect with Daniel on <a href="https://www.linkedin.com/in/danmoshe" target="_blank" rel="noopener noreferrer">LinkedIn</a>.';
+          status.hidden = false;
+          status.focus();
+        });
+    });
+  }
+
   // Scroll reveal
   if ('IntersectionObserver' in window) {
     var observer = new IntersectionObserver(function (entries) {

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Security headers (meta-level; GitHub Pages cannot set HTTP headers) -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://i.ytimg.com; form-action https://formsubmit.co; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://i.ytimg.com; connect-src 'self' https://formsubmit.co; form-action https://formsubmit.co; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
   <!-- To list on Google: verify ownership in Google Search Console (https://search.google.com/search-console),
@@ -851,6 +851,8 @@
 
             <button class="btn btn-primary btn-block" type="submit">Send Message</button>
           </form>
+
+          <div id="form-status" class="form-status" role="status" aria-live="polite" tabindex="-1" hidden></div>
 
           <div class="contact-direct reveal">
             <h3>Or reach me directly</h3>
